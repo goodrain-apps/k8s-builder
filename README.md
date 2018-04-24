@@ -1,18 +1,16 @@
-# k8s-builder
+# K8s-builder
 
-## usage
+## Usage
 
-- clone rainbond kubenetes code
+- Clone rainbond kubenetes code
 
 ```bash
 git clone https://github.com/goodrain/kubernetes.git
 ```
 
-- make kubenetes
+- Make kubenetes
 
 ```bash
-docker run -v $PWD:/go/src/k8s.io/kubernetes \
--w /go/src/k8s.io/kubernetes \
--it --rm --privileged goodrainapps/8s-builder
-make kube-apiserver
+cd kubernetes
+./build.sh  <clean|kubectl|kubelet|kube-apiserver|kube-controller-manager|kube-scheduler|all>
 ```
