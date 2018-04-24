@@ -25,6 +25,7 @@ kube-controller-manager)
   ;;
 kube-scheduler)
   make $1 && compress $1
+  ;;
 all)
   for m in ${kubes[*]}
   do
