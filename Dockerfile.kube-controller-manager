@@ -1,0 +1,9 @@
+FROM goodrainapps/alpine:3.6
+
+ADD ./k8s/_output/local/bin/linux/amd64/kube-controller-manager /usr/bin/kube-controller-manager
+
+COPY kube-controller-manager.sh /run.sh
+
+RUN chmod +x run.sh
+
+ENTRYPOINT [ "/run.sh" ]

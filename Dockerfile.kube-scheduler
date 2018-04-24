@@ -1,0 +1,9 @@
+FROM goodrainapps/alpine:3.6
+
+ADD ./k8s/_output/local/bin/linux/amd64/kube-scheduler /usr/bin/kube-scheduler
+
+COPY kube-scheduler.sh /run.sh
+
+RUN chmod +x run.sh
+
+ENTRYPOINT [ "/run.sh" ]

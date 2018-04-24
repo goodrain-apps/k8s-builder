@@ -1,0 +1,9 @@
+FROM goodrainapps/alpine:3.6
+
+ADD ./k8s/_output/local/bin/linux/amd64/kube-apiserver /usr/bin/kube-apiserver
+
+COPY kube-apiserver.sh /run.sh
+
+RUN chmod +x run.sh
+
+ENTRYPOINT [ "/run.sh" ]
