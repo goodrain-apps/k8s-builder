@@ -30,6 +30,7 @@ all)
   do
     make $1 && compress $1
   done
+  ;;
 "*")
   echo "Please input kubenetes component name <kubectl|kubelet|kube-apiserver|kube-controller-manager|kube-scheduler> or <all>"
   ;;
