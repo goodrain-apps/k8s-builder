@@ -14,11 +14,11 @@ pull:
 	@git clone https://github.com/goodrain/kubernetes.git $(K8S_DIR)
 
 .PHONY: binary
-binary: base ## make k8s binary
+binary: base pull ## make k8s binary
 binary: k8s_pkg:=kubectl kubelet kube-apiserver kube-controller-manager kube-scheduler
 binary:
 	for bin in $(k8s_pkg);do\
-		docker run -v $(k8S_DIR):/go/src/k8s.io/kubernetes -e COMPRESS=true -w /go/src/k8s.io/kubernetes -it --rm --privileged goodrainapps/k8s-builder $${bin}; \
+		docker run -v $(K8S_DIR):/go/src/k8s.io/kubernetes -e COMPRESS=true -w /go/src/k8s.io/kubernetes -it --rm --privileged goodrainapps/k8s-builder $${bin}; \
 	done
 
 .PHONY: image
@@ -31,4 +31,4 @@ image:
 
 .PHONY: clean
 clean: ## clean the build artifacts
-	@
+	@rm -rf $(K8S_DIR)
