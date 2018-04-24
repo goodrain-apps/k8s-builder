@@ -2,7 +2,7 @@
 
 [[ $DEBUG ]] && set -x
 
-kube-modules=( kubectl kubelet kube-apiserver kube-controller-manager kube-scheduler )
+kubes=( kubectl kubelet kube-apiserver kube-controller-manager kube-scheduler )
 
 function compress(){
   [[ $COMPRESS ]] && upx --best ./_output/local/bin/linux/amd64/$@
@@ -26,7 +26,7 @@ kube-controller-manager)
 kube-scheduler)
   make $1 && compress $1
 all)
-  for m in ${kube-modules[*]}
+  for m in ${kubes[*]}
   do
     make $1 && compress $1
   done
