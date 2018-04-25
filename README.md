@@ -1,16 +1,5 @@
-# K8s-builder
+# Rainbond-builder
 
-## Usage
+This repository hosts open source components of Rainbond products. 
 
-- Clone rainbond kubenetes code
-
-```bash
-git clone https://github.com/goodrain/kubernetes.git
-```
-
-- Make kubenetes
-
-```bash
-cd kubernetes
-./build.sh  <clean|kubectl|kubelet|kube-apiserver|kube-controller-manager|kube-scheduler|all>
-```
+This repository is solely maintained by Goodrain, Inc.
