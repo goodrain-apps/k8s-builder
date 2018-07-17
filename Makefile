@@ -1,7 +1,7 @@
 K8S_VER?=v1.6.4
 K8S_DIR:=$(CURDIR)/k8s
 
-all: binary image clean
+all: binary tgz image clean
 
 .PHONY: help
 help: ## show make targets
@@ -28,6 +28,11 @@ image:
 	for img in $(k8s_img);do \
 		docker build -t rainbond/$${img}:$(K8S_VER) -f Dockerfile.$${img} . ; \
 	done
+
+.PHONY: tgz
+tgz: binary ## make k8s tgz
+tgz:
+	tar zcvf k8s.tgz $(K8S_DIR)/_output/local/bin/linux/amd64/
 
 .PHONY: clean
 clean: ## clean the build artifacts
