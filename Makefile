@@ -11,7 +11,7 @@ base:
 	@docker build -t goodrainapps/k8s-builder -f Dockerfile.bin .
 
 pull:
-	@git clone https://github.com/goodrain/kubernetes.git $(K8S_DIR)
+	@git clone --depth 1 https://github.com/goodrain/kubernetes.git $(K8S_DIR)
 
 .PHONY: binary
 binary: base pull ## make k8s binary
