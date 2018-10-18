@@ -1,7 +1,7 @@
 K8S_VER?=v1.10.9
 K8S_DIR:=$(CURDIR)/k8s
 
-all: binary tgz image clean
+all: image clean
 
 .PHONY: help
 help: ## show make targets
@@ -14,8 +14,8 @@ download_pkg:
 	@cp -a /tmp/kubernetes/server/bin/kube-* $(K8S_DIR)/_output/local/bin/linux/amd64/
 
 .PHONY: image
-image: binary ## make k8s image
-image: k8s_img:= kube-apiserver kube-controller-manager kube-scheduler
+image: download_pkg ## make k8s image
+image: k8s_img:= kube-apiserver kube-controller-manager kube-scheduler 
 image:
 	for img in $(k8s_img);do \
 		docker build -t rainbond/$${img}:$(K8S_VER) -f Dockerfile.$${img} . ; \
