@@ -1,0 +1,9 @@
+FROM goodrainapps/alpine:3.6
+
+ADD ./hyperkube /usr/bin/hyperkube
+
+COPY hyperkube.sh /run.sh
+
+RUN chmod +x run.sh
+
+ENTRYPOINT [ "/run.sh" ]
