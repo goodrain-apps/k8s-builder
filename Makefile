@@ -1,4 +1,4 @@
-K8S_VER?=v1.10.11
+K8S_VER?=v1.10.12
 K8S_DIR:=$(CURDIR)/k8s
 
 all: image clean

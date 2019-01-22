@@ -7,12 +7,12 @@ git:
   depth: 1
 
 script:
-- curl -s -L https://storage.googleapis.com/kubernetes-release/release/v1.10.11/bin/linux/amd64/hyperkube -o ./hyperkube
+- curl -s -L https://storage.googleapis.com/kubernetes-release/release/v1.10.12/bin/linux/amd64/hyperkube -o ./hyperkube
 - sudo chmod -R 755 ${PWD}/hyperkube
-- docker build -t rainbond/hyperkube:v1.10.11 -f Dockerfile.hyperkube .
+- docker build -t rainbond/hyperkube:v1.10.12 -f Dockerfile.hyperkube .
 - make all
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-- docker push rainbond/hyperkube:v1.10.11
-- docker push rainbond/kube-scheduler:v1.10.11
-- docker push rainbond/kube-controller-manager:v1.10.11
-- docker push rainbond/kube-apiserver:v1.10.11
+- docker push rainbond/hyperkube:v1.10.12
+- docker push rainbond/kube-scheduler:v1.10.12
+- docker push rainbond/kube-controller-manager:v1.10.12
+- docker push rainbond/kube-apiserver:v1.10.12
