@@ -8,9 +8,9 @@ This repository is solely maintained by Goodrain, Inc.
 ## Kubernetes
 
 ```bash
-rainbond/kube-scheduler:v1.10.12
-rainbond/kube-controller-manager:v1.10.12
-rainbond/kube-apiserver:v1.10.12
-rainbond/hyperkube:v1.10.12
+rainbond/kube-scheduler:v1.10.13
+rainbond/kube-controller-manager:v1.10.13
+rainbond/kube-apiserver:v1.10.13
+rainbond/hyperkube:v1.10.13
 
 ```
